@@ -1,0 +1,47 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.app-container {
+    background-color: lightblue;
+    height: 92vh;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.container-left {
+    width: 40rem;
+    background-color: azure;
+    height: 100%;
+}
+
+.container-right {
+    width: auto;
+    background-color: rgb(214, 212, 212);
+    height: 100%;
+}
+
+
+
+.tweet-item {
+    display: flex;
+
+}
+
+.tweet-user {
+    flex: 1;
+}
+
+.tweet-user img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.tweet-content {
+    flex: 4
+}
