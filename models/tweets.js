@@ -8,20 +8,8 @@ const TweetsSchema = new Schema({
     },
     imageUrl: String,
     author: {
-        name: {
-            type: String,
-            required: true
-        },
-        username: {
-            type: String,
-            required: true
-        },
-        location: String,
-        bio: String,
-        avatarUrl: {
-            type: String,
-            default: '/img/webdxd.png'
-        }
+        type: Schema.Types.ObjectId,
+        ref: 'Users'
     },
     createdAt: {
         type: Date,

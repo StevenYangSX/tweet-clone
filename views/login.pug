@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    .container
+        form(action="/login" method="POST")
+            .form-group
+            label(for='exampleInputEmail1') Username
+            input#exampleInputEmail1.form-control(type="text" name="username" placeholder="Username" required="")
+            
+            .form-group
+            label(for='exampleInputPassword1') Password
+            input#exampleInputPassword1.form-control(type="password" name="password" placeholder="Password" required="")
+            
+            button.btn.btn-primary Submit
+
+
+
+
+
+//-  form(action="/login" method="POST")
+//-             input.input-auth(type="text" name="username" placeholder="Username" required="")
+//-             input.input-auth(type="password" name="password" placeholder="Password" required="")
+//-             button.btn-primary Log in

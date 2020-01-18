@@ -1,15 +1,19 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  a.navbar-brand(href='./index.html') Tweeeeet
+  a.navbar-brand(href='/') Tweeeeet
   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
     span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
       li.nav-item.active
-        a.nav-link(href='#')
+        a.nav-link(href='#!')
           | Home 
           span.sr-only (current)
     form.form-inline.my-2.my-lg-0
-      a.btn.btn-outline-secondary(href='./register.html')
-        | Register
-      a.btn.btn-outline-secondary(href='./login.html')
-        | Login
+      if user
+        a.btn.btn-outline-secondary(href='/logout') Logout
+        
+      else
+        a.btn.btn-outline-secondary(href='/register')
+            | Register
+        a.btn.btn-outline-secondary(href='/login')
+            | Login

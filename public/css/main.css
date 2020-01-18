@@ -8,20 +8,23 @@
 
 .app-container {
     background-color: lightblue;
-    height: 92vh;
+    height: 96vh;
     display: flex;
     flex-direction: row;
 
 }
 
 .container-left {
-    width: 40rem;
+    min-width: 20rem;
+    max-width: 25rem;
     background-color: azure;
     height: 100%;
 }
 
+
+
 .container-right {
-    width: auto;
+
     background-color: rgb(214, 212, 212);
     height: 100%;
 }

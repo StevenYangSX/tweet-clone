@@ -5,19 +5,25 @@ block content
         .container-left
             .profile-card.text-center
                 .card.mr-2.ml-2.mt-2
-                    img.card-img-top(src='./image/user.JPG' alt='Card image cap')
-                    .card-body
-                        h5.card-title Card title
-                        p.card-text
-                            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            | Excepturi amet magnam rerum optio culpa expedita reprehenderit,
-                            | pariatur iste eaque accusantium maxime, voluptatem eligendi?
-                        a.btn.btn-primary(href='./profile.html') My Profile
+                    if authenticated
+                        img.card-img-top(src=''+authenticated.avatarUrl alt='Card image cap')
+                        .card-body
+                            h5.card-title #{authenticated.username}
+                            p.card-text
+                                #{authenticated}
+                            a.btn.btn-primary(href='/profile') My Profile
+                    else
+                        img.card-img-top(src='/image/user.JPG' alt='Card image cap')
+                        .card-body
+                            h5.card-title Welcom to Tweet
+                            p.card-text This is Tweet. Post what is happening now and enjoy the social app.
+                            a.btn.btn-primary(href='/register') Register Now
         .container-right.text-center
-            form.post-tweet
-            textarea(name='tweet' id='' cols='100' rows='4')
-            button.btn.btn-success POST
-            hr
+            if authenticated
+                form.ml-5.mr-5.my-4(action="/tweets" method="POST")
+                    textarea.form-control(name="content" rows="3")
+                    button.btn.btn-success POST
+                hr
             .tweets-container
                 ul.tweets-list.mx-5
                     li.tweet-item
@@ -25,42 +31,27 @@ block content
                             img(src='./image/user.JPG' alt='')
                             h5 Steven Yang
                         .tweet-content
-                            p
-                            | Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            | Rerum cumque rem nesciunt accusantium non quo quia nulla sint
-                            | dolorum et labore repellat id doloremque dolorem, facere,
-                            | ratione corporis quod quaerat.
+                            p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio sed beatae autem itaque fugit! Perspiciatis, expedita. Cumque esse rerum reiciendis.
+                            
                     hr
                     li.tweet-item
                         .tweet-user
                             img(src='./image/user.JPG' alt='')
                             h5 Steven Yang
                         .tweet-content
-                            p
-                            | Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            | Rerum cumque rem nesciunt accusantium non quo quia nulla sint
-                            | dolorum et labore repellat id doloremque dolorem, facere,
-                            | ratione corporis quod quaerat.
+                            p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio sed beatae autem itaque fugit! Perspiciatis, expedita. Cumque esse rerum reiciendis.
                     hr
                     li.tweet-item
                         .tweet-user
                             img(src='./image/user.JPG' alt='')
                             h5 Steven Yang
                         .tweet-content
-                            p
-                            | Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            | Rerum cumque rem nesciunt accusantium non quo quia nulla sint
-                            | dolorum et labore repellat id doloremque dolorem, facere,
-                            | ratione corporis quod quaerat.
+                           p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio sed beatae autem itaque fugit! Perspiciatis, expedita. Cumque esse rerum reiciendis.
                     hr
                     li.tweet-item
                         .tweet-user
                             img(src='./image/user.JPG' alt='')
                             h5 Steven Yang
                         .tweet-content
-                            p
-                            | Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            | Rerum cumque rem nesciunt accusantium non quo quia nulla sint
-                            | dolorum et labore repellat id doloremque dolorem, facere,
-                            | ratione corporis quod quaerat.
+                           p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio sed beatae autem itaque fugit! Perspiciatis, expedita. Cumque esse rerum reiciendis.
                     hr

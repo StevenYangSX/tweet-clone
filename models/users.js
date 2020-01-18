@@ -1,8 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const passportLocalMongoose = require("passport-local-mongoose");
+
 const Schema = mongoose.Schema;
 
 const UsersSchema = new Schema({
-    name: {
+    email: {
         type: String,
         required: true
     },
@@ -14,10 +16,15 @@ const UsersSchema = new Schema({
     bio: String,
     avatarUrl: {
         type: String,
-        default: '/img/user.JPG'
-    }
+        default: "/image/user.JPG"
+    },
+    tweets: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Tweets'
+    }]
 });
 
-const Users = mongoose.model('Users', UsersSchema);
+UsersSchema.plugin(passportLocalMongoose);
+const Users = mongoose.model("Users", UsersSchema);
 
 module.exports = Users;
