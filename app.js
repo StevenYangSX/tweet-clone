@@ -4,10 +4,15 @@ const path = require("path");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-
+//routers
 const index = require("./routers/index");
 const profile = require("./routers/profile");
 const tweets = require("./routers/tweets");
+//passport
+const passport = require("passport");
+const session = require("express-session");
+const LocalStrategy = require("passport-local").Strategy;
+const Users = require("./models/users");
 //import mongoose
 const mongoose = require("mongoose");
 //DB connection
@@ -25,7 +30,6 @@ app.use(
   })
 );
 app.use(cookieParser());
-
 //set static folder
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -41,10 +45,7 @@ app.use(logger("dev"));
 // app.use((err, req, res, next) => {
 //     res.send(err.message);
 // });
-const passport = require("passport");
-const session = require("express-session");
-const LocalStrategy = require("passport-local").Strategy;
-const Users = require("./models/users");
+
 app.use(
   session({
     secret: "webdxd",
@@ -57,6 +58,16 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(Users.createStrategy());
+
+// passport.use(new LocalStrategy({
+//   usernameField: 'email',
+//   passwordField: 'passwd'
+// },
+// function(username, password, done) {
+//   // ...
+// }
+// ));
+
 passport.serializeUser(Users.serializeUser());
 passport.deserializeUser(Users.deserializeUser());
 
